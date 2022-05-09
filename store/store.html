@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      Himalaya Herbal Healthcare Store Locator - Himalaya Wellness (US)
+    </title>
+
+    <link rel = "stylesheet" href = "../navbar/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel = "stylesheet" href = "../navbar/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+
+    <link rel="stylesheet" href="store.css" />
+    <link
+      rel="stylesheet"
+      href="../header/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../footer/footer.css" />
+    <link rel="stylesheet" href="/store.css" />
+  </head>
+  <body>
+    <header id="header">
+    </header>
+    <main>
+      <div id="store-line">
+        <p>Home / Store Locator</p>
+      </div>
+      <div id="store-container">
+        <h1>Store Locator</h1>
+        <input
+          type="text"
+          id="citypin"
+          placeholder="Type a zip code or address..."
+        />
+        <button type="submit" id="search_btn">
+          <i class="fa fa-search"></i>
+        </button>
+        <div>
+          <img
+            src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_location_on_48px-512.png"
+            alt=""
+            class="location"
+          />
+          <p id="fullCity">
+            Please enter city or <br />
+            zip code.
+          </p>
+        </div>
+        <div id="map-block">
+          <iframe
+            id="inputcity"
+            src="https://www.google.com/maps/embed/v1/place?q=New+York&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+          ></iframe>
+          <div>
+            <div>
+              <div id="process">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="updateme">
+          <div id="findingCities">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div id="stores-data"></div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="margin-top: 100px"></footer>
+  </body>
+  <script src="store.js" type="module"></script>
+  <script src="../navbar/navbar.js" type="module"></script>
+</html>

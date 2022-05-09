@@ -1,0 +1,26 @@
+*{
+    font-family: Poppins, sans-serif;
+}
+#container{
+    margin-left: 100px;
+    margin-top: 50px;
+    width: 80%;
+}
+h1{
+    font-weight: 500;
+    font-size: 24px ;
+    line-height: 39px;
+    color: #000000;
+}
+.para1{
+    font-weight: 500;
+    font-size: 18px ;
+    line-height: 36px;
+    color:#000000;
+}
+.para2{
+    font-size: 16px;
+    line-height: 28px;
+    color: #333333;
+    font-weight: 400;
+}

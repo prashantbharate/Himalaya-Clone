@@ -1,0 +1,22 @@
+
+
+main>h1{
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+
+main>.row1{
+    display: grid;
+    grid-template-columns: repeat(3,300px);
+    grid-column: auto;
+    gap: 60px;
+    margin: auto;
+    width: 60%;
+}
+
+ main>.row1>div>h3,main>.row1>div>p,main>.row1>div>h5{
+     width: 300px; 
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 10px;
+} 

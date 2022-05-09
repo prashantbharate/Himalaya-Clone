@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family:"Open Sans", sans-serif;
+        }
+        #checkout_container{
+            display:flex;
+            width:1400px;
+            height:1000px;
+            margin:auto;
+
+        }
+        #checkout_container>div {
+            width:50%;
+            height:100%;
+            border-left:1px solid #828581;
+            
+        }
+
+        #check_right{
+            width:40%;
+            background-color: #f4f7f3;
+        }
+        #check_right_box{
+            width:80%;
+            height:90%;
+            margin:auto;
+            margin-top:50px;;
+        }
+        #check_left_box{
+            width:80%;
+            height:90%;
+            margin:auto;
+            margin-top:50px;;
+            
+        }
+        #home_logo{
+            width:40%;
+            height:10%;
+            cursor:pointer;
+        }
+        #payment_logo{
+            width:90%;
+        }
+        #option_payment{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #login_link{
+            font-size:14px;
+        }
+        input{
+            height:40px;
+            border-radius:5px;
+            font-size:14px;
+            border:1px solid rgb(224, 211, 211);
+            margin-top:10px;
+        }
+        #input_email_ph{
+            width:90%;
+            height:40px;
+            margin:auto;
+            border-radius:5px;
+            font-size:14px;
+            border:1px solid rgb(224, 211, 211);
+        }
+        .heading{
+            color:#333333;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 23px;;
+        }
+        .filling_name{
+            width:48%;
+        }
+        .user_address{
+            width:98%;
+
+        }
+        #nation_input_box{
+            display:flex;
+            justify-content: space-between;
+            gap:5px;
+            margin:5px;
+        }
+        .nation_place{
+            width:30%;
+            height:30px;
+            border:1px solid rgb(224, 211, 211);
+            border-radius: 5px;
+            height:40px;
+        }
+        #submit_btn{
+            width:30%;
+            height:60px;
+            background-color:#a3b49b;
+            color:black;
+        }
+        #singlePro{
+            display:flex;
+            text-align: center;
+            width:418px;
+            height:98px;
+            border-bottom:1px solid teal;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #imagePro{
+            width:65px;
+            height:65px;
+            border-radius: 5px;
+        }
+        button{
+            width:190px;
+            height:60px;
+            background-color:#a3b49b;
+            border:thin;
+            border-radius:5px;
+        }
+        #input_ZIP{
+            margin-top:1px;
+        }
+        #priceContain{
+            display:flex;
+        }
+        #btn_submit{
+            margin-top:20px;
+        }
+        #Discount{
+            width:70%;
+            height:80%;
+        }
+        #discountBox{
+            width:400px;
+            height:60px;
+            text-align: center;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #apply{
+            background-color: #c3c6c2;
+            border:thin;
+            border-radius: 5px;
+            width:20%;
+            height:80%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="checkout_container">
+        <div id="check_left">
+            <div id="check_left_box">
+                <a><img id="home_logo" src="https://cdn.shopify.com/s/files/1/0399/1728/9633/files/new-logo.png?3732"/></a>
+                <a href="amazon.html"><img id="payment_logo" src="https://support.funko.com/hc/article_attachments/360073567134/mceclip0.png" alt="logo"/></a>
+            <hr><p style="text-align: center;">OR</p><hr>
+            <div id="option_payment">
+                <div><h2 class="heading">Contact information</h2></div>
+                <div><p id="login_link">Already have an account?<span><a href="/">Log in</a></span></p></div>
+            </div>
+            <input id="input_email_ph" type="text" type="number" placeholder="Email or Mobile Phone number"/>
+            <h2 class="heading">Shipping address</h2>
+            <form>
+                <input class="filling_name"type="text" placeholder="First name"/>
+                <input class="filling_name"type="text" placeholder="last name"/>
+                <input class="user_address"type="text" placeholder="Address"/>
+                <input class="user_address"type="text" placeholder="Apartment,suite,etc.(optional)"/>
+                <input class="user_address"type="text" placeholder="city"/>
+                <div id="nation_input_box">
+                    <div class="nation_place">
+                        <lable>Country/region</lable>
+                        <select style="border:none;">
+                            <option value="united states">United States</option>    
+                        </select>
+                    </div>
+                <div class="nation_place">
+                    <label>State</label>
+                    <select>
+                        <option vlaue=""></option>
+                    </select>
+                </div>
+                    <input id="input_ZIP"class="nation_place" type="number" placeholder="ZIP code"/>
+                </div>
+                <input type="number" placeholder="Phone" id="ph_num" class="user_address"/>
+                <button type="submit" id="btn_submit">
+                    <span><b>Continue to shipping</b></span>
+                </button>
+                <a href="cart.html">Return to cart</a>
+            </form>
+            </div>
+        </div>
+        <div id="check_right">
+            <div id="check_right_box">
+                <div id="box_product_to_buy"></div>
+            <div id="discountBox">
+                <input id="Discount"type="password" placeholder="Discount code"/>
+                <button id="apply"><b>Apply</b></button>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    let view_pro_checkout=JSON.parse(localStorage.getItem("SelectedPro"));
+console.log(view_pro_checkout);
+
+let product_box=document.getElementById("box_product_to_buy");
+
+  view_pro_checkout.map(function(el){
+
+    let proBox=document.createElement("div");
+    proBox.setAttribute("id","singlePro")
+      let proImg=document.createElement("img");
+      proImg.setAttribute("id","imagePro");
+      proImg.src=el.image;
+
+      let proName=document.createElement("b");
+      proName.innerText=el.name;
+
+      let priceBox=document.createElement("div");
+      priceBox.setAttribute("id","priceContain");
+
+      let proCost=document.createElement("b")
+      proCost.innerText=el.price;
+
+      let dollarSign=document.createElement("b");
+      dollarSign.innerText="$";
+
+      priceBox.append(dollarSign,proCost);
+
+
+      proBox.append(proImg,proName,priceBox);
+
+      product_box.append(proBox);
+  })
+
+</script>

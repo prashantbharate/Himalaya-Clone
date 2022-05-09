@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel = "stylesheet" href = "navbar/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel = "stylesheet" href = "navbar/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="stylesheet" href="navbar/navbar.css">
+
+    <link rel="stylesheet" href="footer/footer.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <style>
+        *{
+            font-family:Poppins,sans-serif;
+        }
+        .title{
+            color:#333333;
+            text-align: center;
+            /* padding: ; */
+        }
+        #products_container{
+            width:90%;
+        }
+        #pro_box{
+            display:flex;
+            margin:auto;
+            justify-content: space-evenly;
+            align-items: center;
+            width:1170px;
+            height:300px;
+            border-bottom:1px solid teal;
+        }
+        #deleteIcon{
+            width:30px;
+            height:30px;
+        }
+        #delete_all_trash{
+            width:30px;
+            height:30px;
+        }
+        #product_image{
+            width:20%;
+            height:90%;
+        }
+        #plusMinus{
+            width:138px;
+            height:54px;
+            font-size: 20px;
+            background-color: #f8f8f8;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+           
+        }
+        #view_total_box{
+            width:570px;
+            height:230px;
+            float:right;
+            background-color: #66765f;
+            margin-right:30px;
+        }
+        #minus_plus{
+            width:30%;
+            height:100%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border:none;
+        }
+        #plus_minus{
+            width:30%;
+            height:100%;
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+            border:none;
+        }
+        #subtotal{
+            padding-top:20px;
+            font-size:24px;
+            color:white;
+            text-align:center;
+            margin:auto;
+        }
+        #grandtotal{
+            font-size:36px;
+            color:white;
+            text-align:center;
+            margin:auto;
+        }
+        .pro_cost{
+            font-size: 36px;
+            color:#a3b49b;
+        }
+        #base_function{
+            width:1170px;
+            height:61px;
+            display:flex;
+            justify-content: space-between;
+        }
+       
+    </style>
+</head>
+<body>
+    <header id="header">
+    </header>
+    <h1 class="title">Shopping Cart</h1>
+    <div id="products_container"></div>
+    <div id="base_function">
+        <div><h3><b><a>continue shopping</a></b></h3></div>
+        <div>
+            <img id="delete_all_trash"onClick="deleteAll()" src="file:///C:/Users/vivek/Downloads/trash-solid.svg"/>
+            <h3><b></b></h3></div>
+    </div>
+    <div id="view_total_box">
+        <div id="subtotal">Subtotal:</div>
+        <div id="grandtotal">Grand Total</div>
+        <div></div>
+    </div>
+
+    <footer id="footer"></footer>
+
+</body>
+</html>
+
+<script type="module">
+    import {footer,navbar} from "./footercomponents/footer.js";
+document.getElementById("header").innerHTML=navbar()
+console.log(footer)
+
+    var cartDta = JSON.parse(localStorage.getItem("himalayadata"))
+    // console.log(cartDta)
+    var total=cartDta.reduce(function(sum,ele,i){
+                    
+                 return sum+Number(ele.price)
+                
+    },0);
+    console.log(total)
+    document.getElementById("grandtotal").innerHTML="$"+total;
+
+    let himalaya=JSON.parse(localStorage.getItem("himalayadata")) || [];
+    console.log(himalaya);
+
+    let totalCost=himalaya.reduce(function(sum,elem,index,arr){
+        return sum + Number(elem.medPrice)
+    },0);
+
+    console.log(totalCost);
+
+    let bigBox=document.getElementById("products_container");
+
+    himalaya.map(function(el,index){
+        let view_pro_box=document.createElement("div");
+        view_pro_box.setAttribute("id","pro_box");
+
+        let remove_icon=document.createElement("img");
+        remove_icon.src="file:///C:/Users/vivek/Downloads/trash-solid.svg"
+        remove_icon.setAttribute("id","deleteIcon");
+        remove_icon.addEventListener("click",function(){
+            deletePro(index);
+        })
+
+
+        let Image=document.createElement("img");
+        Image.setAttribute("id","product_image");
+        Image.src=el.image;
+
+
+        let Name=document.createElement("h2");
+        
+        let anchor=document.createElement("a");
+        anchor.innerText=el.name;
+        anchor.href="Discription.html";
+
+        let costBox=document.createElement("div");
+        costBox.style="display:flex";
+
+        
+
+        let cost=document.createElement("p");
+        cost.innerText=el.price;
+        cost.setAttribute("class","pro_cost");
+
+        costBox.append(cost)
+
+        Name.append(anchor);
+
+        let btnBox=document.createElement("div");
+        btnBox.setAttribute("id","plusMinus");
+
+        let plus=document.createElement("button");
+        plus.setAttribute("id","plus_minus");
+        plus.addEventListener("click",function(){
+            Plus();
+        })
+        plus.innerText="+";
+
+        let quantity_pro=document.createElement("h4");
+        quantity_pro.setAttribute("id","count_of_products");
+        quantity_pro.innerText=1;
+
+
+        let minus=document.createElement("button");
+        minus.setAttribute("id","minus_plus");
+        minus.addEventListener("click",function(){
+            Minus();
+        })
+        minus.innerText="-";
+
+        btnBox.append(plus,quantity_pro,minus)
+
+        view_pro_box.append(remove_icon,Image,Name,costBox,btnBox);
+
+        bigBox.append(view_pro_box);
+        
+    });
+
+     deletePro = (index) =>{
+        himalaya.splice(index,1);
+        console.log(himalaya);
+        localStorage.setItem("himalayadata",JSON.stringify(himalaya));
+        window.location.reload();
+    }
+//let count=document.getElementById("count_of_products").innerText;
+let count=1;
+    function Plus(){
+        if(count>=1){
+            count++;
+            document.getElementById("count_of_products").innerText=count;
+        }
+        
+    }
+    function Minus(){
+        
+        if(count>=2){
+            count--;
+            document.getElementById("count_of_products").innerText=count;
+    }
+}
+
+function deleteAll(){
+    himalaya=[];
+    localStorage.setItem("himalayadata",JSON.stringify(himalaya));
+    window.location.reload();
+
+}
+document.querySelector("#footer").innerHTML = footer();
+
+</script>
+
+<script src="navbar/navbar.js" type="module"></script>
